@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+
 const userSchema = new mongoose.Schema({
 username:{
     type:String,
@@ -19,4 +20,5 @@ password:{
 
 },{timestamps:true})
 
-export default User = mongoose.model("User",userSchema);
+const user = mongoose.model('User',userSchema);
+export default user;
