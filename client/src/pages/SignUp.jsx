@@ -22,22 +22,22 @@ const SignUp = () => {
     try {
       setLoading(true);
       setErrorMessage(null);
-      const res = await axios.post('/api/auth/sign-up',{
+      const res = await fetch('/api/auth/signup', {
         method: 'POST',
-        headers:{'Content-type': 'application/json'},
-        body: JSON.stringify(formData)
-      })
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
       const data = await res.json();
-      if (data.success===false) {
-        return setErrorMessage(data.message) 
+      if (data.success === false) {
+        return setErrorMessage(data.message);
       }
       setLoading(false);
-      if(res.ok){
-        res.navigate('/sign-in')
+      if(res.ok) {
+        navigate('/signin');
       }
     } catch (error) {
-      setErrorMessage(error.message)
-      setLoading(false)
+      setErrorMessage(error.message);
+      setLoading(false);
     }
    }
   
