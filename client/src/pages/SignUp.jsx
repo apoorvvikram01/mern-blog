@@ -4,6 +4,7 @@ import { FcGoogle } from "react-icons/fc"; // Importing Google icon
 import { Alert, Spinner } from "flowbite-react";
 import {signInStart,signInSuccess,signInFailure} from "../redux/user/userSlice.js"
 import { useDispatch ,useSelector} from "react-redux";
+import OAuth from "../components/OAuth.jsx";
 
 
 const SignUp = () => {
@@ -106,13 +107,7 @@ const SignUp = () => {
             </div>
 
             {/* Sign in with Google */}
-            <button
-              type="button"
-              className="w-full flex items-center justify-center px-4 py-2 mb-4 text-sm font-semibold bg-white border border-gray-300 rounded-lg shadow-sm hover:bg-red-500 hover:text-white transition-colors duration-300"
-            >
-              <FcGoogle className="mr-2" size={24} />
-              Sign in with Google
-            </button>
+           <OAuth/>
 
             {/* Submit Button */}
             <button

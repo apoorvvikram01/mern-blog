@@ -89,7 +89,7 @@ const NavBar = () => {
 
             {/* Sign In button */}
             <Link
-              to="/login"
+              to="/signin"
               className="hidden md:inline text-white bg-indigo-600 hover:bg-indigo-700 font-medium rounded-lg text-sm px-5 py-2.5"
             >
               Sign In

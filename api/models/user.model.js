@@ -17,6 +17,10 @@ password:{
     required:true,
   
 },
+profilePicture:{
+    type:String,
+    default: "https://www.freepik.com/free-photos-vectors/default-profile-pic"
+}
 
 },{timestamps:true})
 
