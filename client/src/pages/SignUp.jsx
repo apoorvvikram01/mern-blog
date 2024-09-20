@@ -2,22 +2,22 @@ import React,{useState} from "react";
 import { NavLink,useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc"; // Importing Google icon
 import { Alert, Spinner } from "flowbite-react";
-import axios from "axios";
+import {signInStart,signInSuccess,signInFailure} from "../redux/user/userSlice.js"
+import { useDispatch ,useSelector} from "react-redux";
 
 
 const SignUp = () => {
-  const [formData,setFormData] = useState({});
-  const [errorMessage,setErrorMessage] = useState(null);
-  const [loading,setLoading] = useState(false);
-  const navigate = useNavigate()
-
+  const [formData, setFormData] = useState({});
+  const [errorMessage, setErrorMessage] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
   const handleChange = (e) => {
-   setFormData({...formData ,[e.target.id]:e.target.value.trim()});
-  }
-   const handleSubmit = async (e)=>{
+    setFormData({ ...formData, [e.target.id]: e.target.value.trim() });
+  };
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if(!formData.username || !formData.password || !formData.email ){
-      return setErrorMessage('Please fill all the fields')
+    if (!formData.username || !formData.email || !formData.password) {
+      return setErrorMessage('Please fill out all fields.');
     }
     try {
       setLoading(true);
@@ -33,14 +33,13 @@ const SignUp = () => {
       }
       setLoading(false);
       if(res.ok) {
-        navigate('/signin');
+        navigate('/sign-in');
       }
     } catch (error) {
       setErrorMessage(error.message);
       setLoading(false);
-    }
    }
-  
+  }
   return (
     <div className="min-h-screen flex flex-col md:flex-row">
       {/* Left side of the signup page (hidden on small screens) */}
@@ -136,7 +135,7 @@ const SignUp = () => {
           <p className="mt-4 text-sm text-center text-gray-600">
             Already have an account?{" "}
             <NavLink
-              to="/sign-in"
+              to="/signin"
               className="text-indigo-600 hover:underline"
             >
               Sign In
