@@ -1,7 +1,7 @@
 import User from "../models/user.model.js"
 import bcyptjs from 'bcryptjs'
 
-export const google = async (req,res,next)=>{
+export const googleSignIn = async (req,res,next)=>{
 const {name,email,googlePhotoUrl} = req.body 
 try {
     const user = await User.findOne({email})

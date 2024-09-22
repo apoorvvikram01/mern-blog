@@ -1,10 +1,7 @@
 import React,{useState} from "react";
 import { NavLink,useNavigate } from "react-router-dom";
-import { FcGoogle } from "react-icons/fc"; // Importing Google icon
 import { Alert, Spinner } from "flowbite-react";
-import {signInStart,signInSuccess,signInFailure} from "../redux/user/userSlice.js"
-import { useDispatch ,useSelector} from "react-redux";
-import OAuth from "../components/OAuth.jsx";
+
 
 
 const SignUp = () => {
@@ -34,7 +31,7 @@ const SignUp = () => {
       }
       setLoading(false);
       if(res.ok) {
-        navigate('/sign-in');
+        navigate('/');
       }
     } catch (error) {
       setErrorMessage(error.message);
@@ -106,8 +103,7 @@ const SignUp = () => {
               />
             </div>
 
-            {/* Sign in with Google */}
-           <OAuth/>
+         
 
             {/* Submit Button */}
             <button
